@@ -6,3 +6,4 @@ applications:
     - route: neewedita-prod.cfapps.io
   env:
     WELCOME_MESSAGE: Hello from the production environment
+    
