@@ -4,10 +4,15 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace PalTracker
 {
-    public struct TimeEntry
+    public class TimeEntry
     {
 
-         public long? Id { get; set; } 
+        public TimeEntry()
+        {
+
+        }
+
+        public long? Id { get; set; } 
         public long ProjectId { get; set; }
         public long UserId { get; set; }
         public DateTime Date { get; set; }
