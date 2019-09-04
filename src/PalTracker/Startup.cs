@@ -35,6 +35,9 @@ namespace PalTracker
            );
 
 
+           // services.AddSingleton(sp => new InMemoryTimeEntryRepository());
+
+           services.AddSingleton<ITimeEntryRepository, InMemoryTimeEntryRepository>();
 // services.AddSingleton(sp => new CloudFoundryInfo(
 //     Configuration.GetValue<string>("PORT", "123"),
 //     Configuration.GetValue<string>("MEMORY_LIMIT", "512M"),
