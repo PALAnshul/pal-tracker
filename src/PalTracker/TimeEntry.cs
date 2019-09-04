@@ -6,11 +6,11 @@ namespace PalTracker
 {
     public class TimeEntry
     {
-
         public TimeEntry()
         {
 
         }
+ 
 
         public long? Id { get; set; } 
         public long ProjectId { get; set; }
