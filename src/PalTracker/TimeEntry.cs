@@ -4,12 +4,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace PalTracker
 {
-    public class TimeEntry
+    public struct TimeEntry
     {
-        public TimeEntry()
-        {
+        // public TimeEntry()
+        // {
 
-        }
+        // }
  
 
         public long? Id { get; set; } 
@@ -36,19 +36,19 @@ namespace PalTracker
             Hours = hours;
         }
 
-        public override bool Equals(object obj)
-        {
-            return obj is TimeEntry entry &&
-                   EqualityComparer<long?>.Default.Equals(Id, entry.Id) &&
-                   ProjectId == entry.ProjectId &&
-                   UserId == entry.UserId &&
-                   Date == entry.Date &&
-                   Hours == entry.Hours;
-        }
+        // public override bool Equals(object obj)
+        // {
+        //     return obj is TimeEntry entry &&
+        //            EqualityComparer<long?>.Default.Equals(Id, entry.Id) &&
+        //            ProjectId == entry.ProjectId &&
+        //            UserId == entry.UserId &&
+        //            Date == entry.Date &&
+        //            Hours == entry.Hours;
+        // }
 
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(Id, ProjectId, UserId, Date, Hours);
-        }
+        // public override int GetHashCode()
+        // {
+        //     return HashCode.Combine(Id, ProjectId, UserId, Date, Hours);
+        // }
     }
 }
