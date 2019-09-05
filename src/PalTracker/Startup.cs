@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Steeltoe.CloudFoundry.Connector.MySql.EFCore;
 
 namespace PalTracker
 {
@@ -33,11 +34,17 @@ namespace PalTracker
 
             services.AddSingleton(sp => new CloudFoundryInfo("123","512M","1","127.0.0.1")
            );
+           services.AddScoped<ITimeEntryRepository, MySqlTimeEntryRepository>();
+   services.AddDbContext<TimeEntryContext>(options => options.UseMySql(Configuration));
 
+        //    services.AddDbContext<TimeEntryContext>(options => options.UseMySql(
+        //        Configuration.GetValue<string>"MYSQL__CLIENT__CONNECTIONSTRING","server=127.0.0.1;uid=tracker_dotnet;pwd=password;database=tracker_dotnet_test"));
+
+           
 
            // services.AddSingleton(sp => new InMemoryTimeEntryRepository());
 
-           services.AddSingleton<ITimeEntryRepository, InMemoryTimeEntryRepository>();
+           //services.AddSingleton<ITimeEntryRepository, InMemoryTimeEntryRepository>();
 // services.AddSingleton(sp => new CloudFoundryInfo(
 //     Configuration.GetValue<string>("PORT", "123"),
 //     Configuration.GetValue<string>("MEMORY_LIMIT", "512M"),
